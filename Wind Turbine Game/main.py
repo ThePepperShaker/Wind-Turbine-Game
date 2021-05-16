@@ -29,14 +29,13 @@ from os import path
 
 # Wind 
 # - Implement function that generates a random wind speed for each region 
+# - (Use Weibull distribution)
 # - Update 5 seconds 
 # - Wind speed determines power/energy generation of wind turbines 
-# - 
 
 # Energy 
 # - Calculate energy generated each second
 # - Energy generation determined by number of turbines in region and wind speed 
-# - 
 
 
 # Earth Satisfaction 
@@ -45,15 +44,13 @@ from os import path
 # - Timer resets everytime earth emotion changes 
 # - What should the threshold level be? 
 
-
 # Game Over condition 
-# - Earth happy for 2 minutes = Game Over (Win) 
-# - Earth sad for 1 minute = Game Over (Lose)
+# - Initally: keep earth happy for certain period of time 
+# - Just went with generating certain amount of power
 
 # Animations 
 # - Flowing wind turbines 
 # - Animated clouds 
-# - Animated ocean 
 
 # Game class 
 class Game: 
