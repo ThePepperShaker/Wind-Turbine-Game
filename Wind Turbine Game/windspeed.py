@@ -5,9 +5,6 @@ import time
 
 # Constants 
 # Generate a list of 1:20 numbers 
-WS = []
-for i in range(21):
-    WS.append(i)
 
 # Create a function generating draws from a Weibull distribution 
 def Weibull(x, lamb, k): 

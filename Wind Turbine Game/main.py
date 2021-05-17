@@ -259,6 +259,10 @@ class Game:
         pg.display.flip()
     
     def create_grid(self): 
+        '''
+        Creates a 36 x 36 grid with 25x25px per tile. 
+        Appends region and slot markers to generate sprites upon starting the game. 
+        '''
         grid = []
         for y in range(36): 
             grid.append([])
@@ -316,20 +320,7 @@ class Game:
             if x >= 0 and y >= 0: return (grid[y][x], x, y)
         except IndexError: pass
         return None, None, None
-
-    def get_square_under_turbine(self, grid): 
-        '''
-        Returns the tile under each turbine 
-        '''
-        turbine_pos_list = []
-        self.turbine_tile_list = []
-        for turbine in self.turbines: 
-            turbine_pos = turbine.pos
-            turbine_pos_list.append(turbine_pos)
-            x, y = [int(pos // TILESIZE) for pos in turbine_pos]
-            self.turbine_tile_list.append([x,y])
         
-
     def draw_grid(self): 
         '''
         Draws the 36 x 36 grid on the map
@@ -348,7 +339,7 @@ class Game:
         background_rect = background.get_rect()
         self.screen.blit(background, background_rect)
 
-        # Print some informatino about how to play
+        # Print some information about how to play
         self.draw_text('Generate 10,000kW of Power in under 1 Minute to Save the Earth!', 28, GREEN, WIDTH / 2, HEIGHT - 850)
         self.draw_text('Place Turbines in slots to generate power. More Wind = More Power!.',  28, GREEN, WIDTH / 2, (HEIGHT - 100))
         self.draw_text('Press any key to play', 28, GREEN, WIDTH / 2, HEIGHT - 150)
@@ -389,7 +380,7 @@ class Game:
     
     def draw_text(self, text, size, color, x, y):
         '''
-        ...
+        Function for drawing any text on the game screen
         '''
         font = pg.font.Font(self.font_name, size)
         text_surface = font.render(text, True, color)
